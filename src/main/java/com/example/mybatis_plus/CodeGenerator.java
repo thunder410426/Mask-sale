@@ -1,5 +1,15 @@
 package com.example.mybatis_plus;
 
+import com.baomidou.mybatisplus.generator.AutoGenerator;
+import com.baomidou.mybatisplus.generator.InjectionConfig;
+import com.baomidou.mybatisplus.generator.config.*;
+import com.baomidou.mybatisplus.generator.config.po.TableInfo;
+import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
+import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -11,19 +21,19 @@ public class CodeGenerator {
 
     // 数据库连接配置
     private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static final String JDBC_URL = "jdbc:mysql://10.21.13.14:3306/demodb?useUnicode=true&useSSL=false&characterEncoding=utf8";
-    private static final String JDBC_USER_NAME = "demo";
-    private static final String JDBC_PASSOWRD = "demo123456";
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/mask_sale?serverTimezone=GMT%2B8";
+    private static final String JDBC_USER_NAME = "root";
+    private static final String JDBC_PASSOWRD = "root";
 
     // 包名和模块名
-    private static final String PACKAGE_NAME = "com.yuwen";
-    private static final String MODULE_NAME = "demo";
+    private static final String PACKAGE_NAME = "com.example";
+    private static final String MODULE_NAME = "masksale";
 
     // 表名，多个表使用英文逗号分割
-    private static final String TBL_NAMES = "tbl_role";
+    private static final String TBL_NAMES = "inventory,record_outbound,record_purchase,user";
 
     // 表名的前缀，从表生成代码时会去掉前缀
-    private static final String TABLE_PREFIX = "tbl_";
+    private static final String TABLE_PREFIX = "record_";
 
     // 生成代码入口main方法
     public static void main(String[] args) {
@@ -65,7 +75,7 @@ public class CodeGenerator {
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
         gc.setOutputDir(projectPath + "/src/main/java");
-        gc.setAuthor("yuwen");
+        gc.setAuthor("jinghao");
         gc.setOpen(false);
         // 自定义生成的ServiceName，去掉默认的ServiceName前面的I
         gc.setServiceName("%s" + ConstVal.SERVICE);
@@ -102,15 +112,16 @@ public class CodeGenerator {
         // 自定义输出配置
         List<FileOutConfig> focList = new ArrayList<>();
         String projectPath = System.getProperty("user.dir");
-        // 自定义配置会被优先输出
-        focList.add(new FileOutConfig(templatePath) {
-            @Override
-            public String outputFile(TableInfo tableInfo) {
-                // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化
-                return projectPath + "/src/main/resources/mapper/" + tableInfo.getEntityName() + "Mapper"
-                        + StringPool.DOT_XML;
-            }
-        });
+//        focList.add(new FileOutConfig(templatePath) {
+//        // 自定义配置会被优先输出
+//            @Override
+//            public String outputFile(TableInfo tableInfo) {
+//                // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化
+//                return projectPath + "/src/main/resources/mapper/" + tableInfo.getEntityName() + "Mapper"
+//                        + StringPool.DOT_XML;
+//            }
+//        }
+//        );
 
         InjectionConfig cfg = new InjectionConfig() {
             @Override

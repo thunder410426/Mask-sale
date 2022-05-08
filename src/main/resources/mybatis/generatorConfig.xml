@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <classPathEntry
+            location="C:\Users\刘京毫\.m2\repository\mysql\mysql-connector-java\8.0.13\mysql-connector-java-8.0.13.jar"/>
+    <context id="mysql" targetRuntime="MyBatis3Simple"
+             defaultModelType="flat">
+
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+        <!-- <plugin type="tk.mybatis.mapper.generator.MapperPlugin"> <property
+            name="mappers" value="org.zn.mvcbase.mybatis.CommonsMapper" /> </plugin> -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/mask_sale?serverTimezone=Asia/Shanghai"
+                        userId="root" password="root">
+            <!--MySQL 8.x 需要指定服务器的时区-->
+            <property name="serverTimezone" value="UTC"/>
+            <!--MySQL 不支持 schema 或者 catalog 所以需要添加这个-->
+            <!--参考 : http://www.mybatis.org/generator/usage/mysql.html-->
+            <property name="nullCatalogMeansCurrent" value="true"/>
+            <!-- MySQL8默认启用 SSL ,不关闭会有警告-->
+            <property name="useSSL" value="false"/>
+        </jdbcConnection>
+        <!-- po -->
+        <javaModelGenerator
+                targetPackage="com.example.masksale.entity"
+                targetProject="C:\Users\刘京毫\Desktop\作业,实训,实验\人机交互实验报告\Mask-sale\src\main\java"
+        />
+        <!--E:\project\fas\fas4\fas-haiot-interface\src\main\java-->
+        <!--E:\project\fas\fas4\fas-haiot-interface\src\main\resources-->
+        <!--D:\CodeSpace\Gitee\区级-区域级消防物联网平台\fas4.0-interface\src\main\java-->
+        <!--D:\CodeSpace\Gitee\区级-区域级消防物联网平台\fas4.0-interface\src\main\resources-->
+        <!-- mapper -->
+        <sqlMapGenerator
+                targetPackage="mybatis.mapper"
+                targetProject="C:\Users\刘京毫\Desktop\作业,实训,实验\人机交互实验报告\Mask-sale\src\main\resources"
+        />
+        <!-- dao -->
+        <javaClientGenerator
+                targetPackage="com.example.masksale.mapper"
+                targetProject="C:\Users\刘京毫\Desktop\作业,实训,实验\人机交互实验报告\Mask-sale\src\main\java"
+                type="ANNOTATEDMAPPER"
+        />
+        <!--生成表数据-->
+        <table tableName="inventory" schema="fas4"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="record_outbound" schema="fas4"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="record_purchase" schema="fas4"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+        <table tableName="user" schema="fas4"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <property name="useActualColumnNames" value="false"/>
+        </table>
+
+    </context>
+</generatorConfiguration>
+
