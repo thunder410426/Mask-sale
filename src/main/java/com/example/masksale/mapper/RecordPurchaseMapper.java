@@ -2,12 +2,13 @@ package com.example.masksale.mapper;
 
 import com.example.masksale.entity.RecordPurchase;
 import java.util.List;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.type.JdbcType;
 
+import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.type.JdbcType;
+import org.springframework.stereotype.Repository;
+
+@Mapper
+@Repository
 public interface RecordPurchaseMapper {
     @Insert({
         "insert into record_purchase (purchase_id, purchase_num, ",
