@@ -7,10 +7,7 @@ import com.example.masksale.service.InventoryService;
 import com.example.masksale.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -35,7 +32,7 @@ public class TestController {
     }
 
     @PostMapping("/reduce")
-    public Result<Void> reduce(String equipmentId){
+    public Result<Void> reduce(@RequestParam String equipmentId){
         if (inventoryService.queryInventory(equipmentId) <= 0){
             return Result.failure("对不起，库存不足");
         }else {
