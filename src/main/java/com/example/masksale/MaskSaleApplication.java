@@ -5,7 +5,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.example.masksale.mapper")
 public class MaskSaleApplication {
 
     public static void main(String[] args) {

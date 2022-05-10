@@ -13,11 +13,11 @@ public class RecordOutbound {
 
     private Date saleTime;
 
-    private Integer equipmentId;
+    private String equipmentId;
 
     private String saleByn;
 
-    private Integer orderNumber;
+    private String orderNumber;
 
     private String isDone;
 
@@ -61,11 +61,11 @@ public class RecordOutbound {
         this.saleTime = saleTime;
     }
 
-    public Integer getEquipmentId() {
+    public String getEquipmentId() {
         return equipmentId;
     }
 
-    public void setEquipmentId(Integer equipmentId) {
+    public void setEquipmentId(String equipmentId) {
         this.equipmentId = equipmentId;
     }
 
@@ -77,11 +77,11 @@ public class RecordOutbound {
         this.saleByn = saleByn;
     }
 
-    public Integer getOrderNumber() {
+    public String getOrderNumber() {
         return orderNumber;
     }
 
-    public void setOrderNumber(Integer orderNumber) {
+    public void setOrderNumber(String orderNumber) {
         this.orderNumber = orderNumber;
     }
 

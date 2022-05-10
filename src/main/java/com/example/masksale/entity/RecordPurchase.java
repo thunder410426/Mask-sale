@@ -9,7 +9,7 @@ public class RecordPurchase {
 
     private Date purchaseTime;
 
-    private Integer equipmentId;
+    private String equipmentId;
 
     public String getPurchaseId() {
         return purchaseId;
@@ -35,11 +35,11 @@ public class RecordPurchase {
         this.purchaseTime = purchaseTime;
     }
 
-    public Integer getEquipmentId() {
+    public String getEquipmentId() {
         return equipmentId;
     }
 
-    public void setEquipmentId(Integer equipmentId) {
+    public void setEquipmentId(String equipmentId) {
         this.equipmentId = equipmentId;
     }
 }

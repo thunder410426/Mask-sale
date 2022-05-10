@@ -28,7 +28,7 @@ public interface RecordOutboundMapper {
         "#{saleByn,jdbcType=VARCHAR}, #{orderNumber,jdbcType=INTEGER}, ",
         "#{isDone,jdbcType=VARCHAR})"
     })
-    int insert(RecordOutbound record);
+    void insert(RecordOutbound record);
 
     @Select({
         "select",

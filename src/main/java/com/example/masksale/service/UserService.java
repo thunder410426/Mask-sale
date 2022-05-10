@@ -25,7 +25,9 @@ public class UserService {
 
     public void registry(User user){
         Date date =new Date();
-        user.setRegisteTime(date);
-        userMapper.insert(user);
+        if (userMapper.selectUserIfExits(user.getNickName()).size() == 0){
+            user.setRegisteTime(date);
+            userMapper.insert(user);
+        }
     }
 }

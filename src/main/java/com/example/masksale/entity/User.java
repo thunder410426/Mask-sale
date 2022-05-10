@@ -9,6 +9,8 @@ public class User {
 
     private Date registeTime;
 
+    private String openId;
+
     public Integer getId() {
         return id;
     }
@@ -31,5 +33,13 @@ public class User {
 
     public void setRegisteTime(Date registeTime) {
         this.registeTime = registeTime;
+    }
+
+    public String getOpenId() {
+        return openId;
+    }
+
+    public void setOpenId(String openId) {
+        this.openId = openId;
     }
 }

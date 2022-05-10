@@ -1,13 +1,10 @@
 package com.example.masksale.controller;
 
-import com.example.masksale.entity.Inventory;
 import com.example.masksale.entity.User;
 import com.example.masksale.response.Result;
-import com.example.masksale.service.InventoryService;
 import com.example.masksale.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.annotation.Resource;
 
@@ -15,17 +12,13 @@ import javax.annotation.Resource;
  * Created with IntelliJ IDEA.
  *
  * @Author: 刘京毫
- * @Date: 2022/05/09/18:35
+ * @Date: 2022/05/10/20:47
  * @Description:
  */
-@RestController
-public class TestController {
+public class UserController {
 
-    @Resource
-    InventoryService inventoryService;
     @Resource
     UserService userService;
-
 
     @PostMapping("/regist")
     public Result<Void> regist(@RequestBody User user){

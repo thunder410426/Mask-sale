@@ -14,7 +14,7 @@ public interface RecordPurchaseMapper {
         "insert into record_purchase (purchase_id, purchase_num, ",
         "purchase_time, equipment_id)",
         "values (#{purchaseId,jdbcType=VARCHAR}, #{purchaseNum,jdbcType=INTEGER}, ",
-        "#{purchaseTime,jdbcType=TIMESTAMP}, #{equipmentId,jdbcType=INTEGER})"
+        "#{purchaseTime,jdbcType=TIMESTAMP}, #{equipmentId,jdbcType=VARCHAR})"
     })
     int insert(RecordPurchase record);
 
@@ -27,7 +27,7 @@ public interface RecordPurchaseMapper {
         @Result(column="purchase_id", property="purchaseId", jdbcType=JdbcType.VARCHAR),
         @Result(column="purchase_num", property="purchaseNum", jdbcType=JdbcType.INTEGER),
         @Result(column="purchase_time", property="purchaseTime", jdbcType=JdbcType.TIMESTAMP),
-        @Result(column="equipment_id", property="equipmentId", jdbcType=JdbcType.INTEGER)
+        @Result(column="equipment_id", property="equipmentId", jdbcType=JdbcType.VARCHAR)
     })
     List<RecordPurchase> selectAll();
 }

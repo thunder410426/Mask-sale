@@ -3,7 +3,7 @@ package com.example.masksale.entity;
 public class Inventory {
     private Integer maskNum;
 
-    private Integer equipmentId;
+    private String equipmentId;
 
     public Integer getMaskNum() {
         return maskNum;
@@ -13,11 +13,11 @@ public class Inventory {
         this.maskNum = maskNum;
     }
 
-    public Integer getEquipmentId() {
+    public String getEquipmentId() {
         return equipmentId;
     }
 
-    public void setEquipmentId(Integer equipmentId) {
+    public void setEquipmentId(String equipmentId) {
         this.equipmentId = equipmentId;
     }
 }
