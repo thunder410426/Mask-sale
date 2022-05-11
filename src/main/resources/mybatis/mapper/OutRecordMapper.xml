@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.masksale.mapper.manage_mapper.OutRecordMapper">
+
+
+<!--    </resultMap>-->
+    <select id="queryOutRecordByName" resultType="com.example.masksale.entity.RecordOutbound" parameterType="com.example.masksale.entity.manage_entity.QueryOutRecord">
+        select id,is_sale,buyers_id,buyers_name,sale_time,equipment_id,sale_byn,order_number,is_done
+            from record_outbound
+        <if test="queryOutRecord.buyersName != null">
+                where buyers_name = #{queryOutRecord.buyersName}
+        </if>
+
+    </select>
+</mapper>

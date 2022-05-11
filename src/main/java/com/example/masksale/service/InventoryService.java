@@ -25,14 +25,17 @@ public class InventoryService {
     @Resource
     RecordOutboundMapper recordOutboundMapper;
 
+    //减库存
     public void reduce(String equipmentId){
         inventoryMapper.reduceInventoryByFree(equipmentId);
     }
 
+    //查库存
     public int queryInventory(String equimentId){
         return inventoryMapper.queryInventory(equimentId);
     }
 
+    //增加减库存记录
     public void outBoundRecord(RecordOutbound recordOutbound){
         recordOutboundMapper.insert(recordOutbound);
     }

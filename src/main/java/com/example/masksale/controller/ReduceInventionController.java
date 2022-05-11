@@ -5,6 +5,7 @@ import com.example.masksale.response.Result;
 import com.example.masksale.service.InventoryService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,8 +27,10 @@ public class ReduceInventionController {
     InventoryService inventoryService;
 
 
+//    出库
     @PostMapping("/reduce")
-    public Result<Void> reduce(@RequestParam String equipmentId, @RequestParam String nickName){
+    public Result<Void> reduce(@RequestParam String equipmentId, @RequestParam String nickName, @RequestParam Integer
+            isSale){
         if (inventoryService.queryInventory(equipmentId) <= 0){
             return Result.failure("对不起，库存不足");
         }else {
@@ -41,10 +44,12 @@ public class ReduceInventionController {
             recordOutbound.setOrderNumber(uuid.toString());
             recordOutbound.setBuyersName(nickName);
             recordOutbound.setBuyersId("1");
-            recordOutbound.setIsSale(1);
+            recordOutbound.setIsSale(isSale);
             recordOutbound.setSaleByn("111");
 
+//            出货记录
             inventoryService.outBoundRecord(recordOutbound);
+//            减少库存
             inventoryService.reduce(equipmentId);
             return Result.success();
         }

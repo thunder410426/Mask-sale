@@ -1,5 +1,8 @@
 package com.example.masksale.entity;
 
+import lombok.Data;
+
+@Data
 public class Inventory {
     private Integer maskNum;
 

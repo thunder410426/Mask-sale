@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.masksale.mapper.manage_mapper.PurchaseMapper">
+    <update id="purchase" parameterType="com.example.masksale.entity.manage_entity.Purchase">
+        update inventory set mask_num = mask_num + #{purchase.purchaseNum}
+            where equipment_id = #{purchase.equipmentId}
+    </update>
+
+    <insert id="purchaseRecord" parameterType="com.example.masksale.entity.RecordPurchase">
+        insert into record_purchase (purchase_num, purchase_time, equipment_id)
+        values (#{recordPurchase.purchaseNum}, #{recordPurchase.purchaseTime}, #{recordPurchase.equipmentId})
+    </insert>
+
+</mapper>
