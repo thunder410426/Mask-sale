@@ -24,7 +24,7 @@ public class QueryOutRecordController {
     @Autowired
     OutRecordService outRecordService;
 
-    //传buyersName则根据条件查找，不传则全查
+    //查询出货记录，传buyersName则根据条件查找，不传则全查
     @PostMapping("/queryInventoryByName")
     public Result<List<RecordOutbound>> queryInventoryByName(@RequestBody QueryOutRecord queryOutRecord){
         return Result.success(outRecordService.queryOutRecordByName(queryOutRecord));
