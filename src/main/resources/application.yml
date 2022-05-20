@@ -19,7 +19,7 @@ spring:
     qosValues: 2,3
 
 server:
-  port: 8081
+  port: 80
 mybatis:
   config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
