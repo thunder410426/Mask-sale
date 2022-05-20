@@ -10,13 +10,13 @@ spring:
   mqtt:
     username: mask
     password: ljhLJH080230.
-    url: tcp://47.99.130.56:1883
+    url: tcp://192.168.0.11:1883
     client:
       id: 'maskId'
     default:
       topic: 'topic'
-    topics: hello
-    qosValues: 1,1
+    topics: mask
+    qosValues: 2,3
 
 server:
   port: 8081

@@ -1,6 +1,7 @@
 package com.example.masksale.controller;
 
 import com.example.masksale.entity.RecordOutbound;
+import com.example.masksale.mqtt.mqtt_config.MqttGateway;
 import com.example.masksale.response.Result;
 import com.example.masksale.service.InventoryService;
 import org.springframework.stereotype.Controller;
@@ -25,15 +26,25 @@ public class ReduceInventionController {
 
     @Resource
     InventoryService inventoryService;
-
+    @Resource
+    private MqttGateway mqttGateway;
 
 //    出库
     @PostMapping("/reduce")
-    public Result<Void> reduce(@RequestParam String equipmentId, @RequestParam String nickName, @RequestParam Integer
-            isSale){
+    public Result<Void> reduce(@RequestParam String equipmentId,
+                               @RequestParam String nickName,
+                               @RequestParam Integer isSale,
+                               @RequestParam String topic, //发布的topic名
+                               @RequestParam String msg //发送的信息，1表示出货
+    ){
         if (inventoryService.queryInventory(equipmentId) <= 0){
             return Result.failure("对不起，库存不足");
         }else {
+
+            //mqtt向树莓派发送请求
+
+            mqttGateway.send(topic, msg);
+
             RecordOutbound recordOutbound = new RecordOutbound();
 
             recordOutbound.setEquipmentId(equipmentId);

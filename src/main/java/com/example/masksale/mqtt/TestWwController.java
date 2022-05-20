@@ -1,5 +1,6 @@
 package com.example.masksale.mqtt;
-import com.example.masksale.mqtt.mqtt_config.MqttGateWay;
+import com.example.masksale.mqtt.mqtt_config.MqttGateway;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,19 +11,13 @@ import javax.annotation.Resource;
 public class TestWwController {
 
     @Resource
-    private MqttGateWay mqttGateway;
+    private MqttGateway mqttGateway;
 
-    @RequestMapping("/sendMqtt")
-    public String sendMqtt(){
-        String  sendData = "12356";
-        System.out.println("消息订阅"+sendData);
-        mqttGateway.sendToMqtt(sendData,"hello");
-        return "OK";
-    }
-
-    @RequestMapping("/test")
-    public String test(String  sendData){
-        return "testOK";
+    @PostMapping("mqttSend")
+    public void mqtt() {
+        String topic = "mask";
+        String msg = "1";
+        mqttGateway.send(topic, msg);
     }
 
 }
