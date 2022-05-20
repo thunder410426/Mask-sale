@@ -29,7 +29,8 @@ public class MqttReceiveConfig {
 
     public String password = "ljhLJH080230.";
 
-    public String hostUrl = "tcp://192.168.0.11:1883";
+    //树莓派公网ip
+    public String hostUrl = "tcp://123.9.177.248:1883";
 
     public String inputClientId = "maskId";
 
@@ -65,13 +66,7 @@ public class MqttReceiveConfig {
     }
 
 
-    /**
-     * 接收通道
-     */
-    @Bean(value = "input")
-    public MessageChannel mqttInputChannel() {
-        return new DirectChannel();
-    }
+
 
     /**
      * 发送通道
@@ -81,25 +76,7 @@ public class MqttReceiveConfig {
         return new DirectChannel();
     }
 
-    /**
-     * 接受消息管道
-     */
-    @Bean
-    public MessageProducerSupport mqttInput() {
-        MqttPahoMessageDrivenChannelAdapter adapter =
-                new MqttPahoMessageDrivenChannelAdapter(inputClientId, mqttClientFactory(), "hello", "hello1");//建立订阅连接
-        DefaultPahoMessageConverter converter = new DefaultPahoMessageConverter();
-        //bytes类型接收
-        converter.setPayloadAsBytes(false);
-        adapter.setConverter(converter);
-        //连接超时的时间
-        adapter.setCompletionTimeout(completionTimeout);
-        //消息质量
-        adapter.setQos(1);
-        //输入管道名称
-        adapter.setOutputChannelName("input");
-        return adapter;
-    }
+
 
     /**
      * 发送消息通道
