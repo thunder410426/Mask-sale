@@ -15,8 +15,8 @@ spring:
       id: 'maskId'
     default:
       topic: 'topic'
-    topics: topic,hello,hit/us
-    qosValues: 2,3
+    topics: hello
+    qosValues: 1,1
 
 server:
   port: 8081
