@@ -5,6 +5,7 @@ import com.example.masksale.entity.manage_entity.QueryOutRecord;
 import com.example.masksale.response.Result;
 import com.example.masksale.service.manage_service.OutRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +20,7 @@ import java.util.List;
  * @Description:
  */
 @RestController
+@CrossOrigin
 public class QueryOutRecordController {
 
     @Autowired

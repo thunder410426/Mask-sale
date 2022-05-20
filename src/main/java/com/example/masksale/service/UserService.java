@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import javax.xml.ws.ServiceMode;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -29,5 +30,9 @@ public class UserService {
             user.setRegisteTime(date);
             userMapper.insert(user);
         }
+    }
+
+    public List<User> selectAllUser(){
+        return userMapper.selectAll();
     }
 }

@@ -45,7 +45,8 @@ public interface UserMapper {
     @Results({
         @Result(column="id", property="id", jdbcType=JdbcType.INTEGER, id=true),
         @Result(column="nick_name", property="nickName", jdbcType=JdbcType.VARCHAR),
-        @Result(column="registe_time", property="registeTime", jdbcType=JdbcType.TIMESTAMP)
+        @Result(column="registe_time", property="registeTime", jdbcType=JdbcType.TIMESTAMP),
+        @Result(column="open_id", property="openId")
     })
     List<User> selectAll();
 
