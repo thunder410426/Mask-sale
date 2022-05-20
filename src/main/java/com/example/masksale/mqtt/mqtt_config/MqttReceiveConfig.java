@@ -30,7 +30,7 @@ public class MqttReceiveConfig {
     public String password = "ljhLJH080230.";
 
     //树莓派公网ip
-    public String hostUrl = "tcp://123.9.177.248:1883";
+    public String hostUrl = "tcp://192.168.0.11:1883";
 
     public String inputClientId = "maskId";
 
@@ -60,8 +60,7 @@ public class MqttReceiveConfig {
      */
     @Bean
     public MqttPahoClientFactory mqttClientFactory() {
-        DefaultMqttPahoClientFactory factory = new DefaultMqttPahoClientFactory();
-        factory.setConnectionOptions(getMqttConnectOptions());
+        DefaultMqttPahoClientFactory factory = new DefaultMqttPahoClientFactory();factory.setConnectionOptions(getMqttConnectOptions());
         return factory;
     }
 
