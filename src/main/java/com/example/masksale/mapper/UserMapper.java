@@ -65,4 +65,6 @@ public interface UserMapper {
 
     })
     List<User> selectUserIfExits(String nickName);
+
+    List<User> selectUser(@Param("nickName") String nickName);
 }

@@ -4,10 +4,7 @@ import com.example.masksale.entity.User;
 import com.example.masksale.response.Result;
 import com.example.masksale.service.UserService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -37,9 +34,16 @@ public class UserController {
         return Result.success();
     }
 
-    @PostMapping("/selectAllUser")
-    public Result<List<User>> selectAllUser(){
-        return Result.success(userService.selectAllUser());
+    @PostMapping("/selectUser")
+    public Result<List<User>> selectUser(String nickName){
+        return Result.success(userService.selectUser(nickName));
+    }
+
+
+    @PostMapping("/deleteUserByPrimeKey")
+    public Result<Void> deleteByPrimekey(Integer id){
+        userService.deleteUser(id);
+        return Result.success();
     }
 
 }

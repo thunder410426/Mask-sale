@@ -21,7 +21,7 @@ import java.util.List;
  */
 @RestController
 @CrossOrigin
-public class QueryOutRecordController {
+public class OutRecordController {
 
     @Autowired
     OutRecordService outRecordService;
@@ -30,5 +30,11 @@ public class QueryOutRecordController {
     @PostMapping("/queryInventoryByName")
     public Result<List<RecordOutbound>> queryInventoryByName(@RequestBody QueryOutRecord queryOutRecord){
         return Result.success(outRecordService.queryOutRecordByName(queryOutRecord));
+    }
+
+    @PostMapping("/deleteOurRecordByPrimeKey")
+    public Result<Void> deleteOurRecordByprimeKey(Integer id){
+        outRecordService.deleteByPrimekey(id);
+        return Result.success();
     }
 }

@@ -1,12 +1,15 @@
 package com.example.masksale.service.manage_service;
 
 import com.example.masksale.entity.RecordPurchase;
+import com.example.masksale.entity.User;
 import com.example.masksale.entity.manage_entity.Purchase;
+import com.example.masksale.mapper.RecordPurchaseMapper;
 import com.example.masksale.mapper.manage_mapper.PurchaseMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -20,6 +23,8 @@ public class PurchaseService {
 
     @Resource
     PurchaseMapper purchaseMapper;
+    @Resource
+    RecordPurchaseMapper recordPurchaseMapper;
 
     public void purchase(Purchase purchase){
 
@@ -35,6 +40,10 @@ public class PurchaseService {
         //添加进货记录
         purchaseMapper.purchaseRecord(recordPurchase);
 
+    }
+
+    public List<RecordPurchase> selectPurchaseRecord(){
+        return recordPurchaseMapper.selectAll();
     }
 
 }

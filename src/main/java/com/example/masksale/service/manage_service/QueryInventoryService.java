@@ -1,11 +1,13 @@
 package com.example.masksale.service.manage_service;
 
+import com.example.masksale.entity.Inventory;
 import com.example.masksale.entity.manage_entity.Purchase;
 import com.example.masksale.mapper.manage_mapper.PurchaseMapper;
 import com.example.masksale.mapper.manage_mapper.QueryInventoryMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -20,7 +22,7 @@ public class QueryInventoryService {
     @Resource
     QueryInventoryMapper queryInventoryMapper;
 
-    public Integer queryInventory(String equipmentId){
+    public List<Inventory> queryInventory(String equipmentId){
         return queryInventoryMapper.queryInventory(equipmentId);
     }
 

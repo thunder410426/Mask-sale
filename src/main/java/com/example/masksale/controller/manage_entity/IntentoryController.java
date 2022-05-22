@@ -1,12 +1,14 @@
 package com.example.masksale.controller.manage_entity;
 
-import com.example.masksale.mapper.manage_mapper.QueryInventoryMapper;
+import com.example.masksale.entity.Inventory;
 import com.example.masksale.response.Result;
+import com.example.masksale.service.manage_service.QueryInventoryService;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,14 +19,15 @@ import javax.annotation.Resource;
  */
 @RestController
 @CrossOrigin
-public class QueryIntentoryController {
+public class IntentoryController {
 
     @Resource
-    QueryInventoryMapper queryInventoryMapper;
+    QueryInventoryService queryInventoryService;
 
     @PostMapping("/queryInventory")
-    public Result<Integer> queryInventory(String equipmentId){
-        Integer res = queryInventoryMapper.queryInventory(equipmentId);
+    public Result<List<Inventory>> queryInventory(String equipmentId){
+//        Integer res = queryInventoryMapper.queryInventory(equipmentId);
+        List<Inventory> res = queryInventoryService.queryInventory(equipmentId);
         return Result.success(res);
     }
 

@@ -35,4 +35,12 @@ public class UserService {
     public List<User> selectAllUser(){
         return userMapper.selectAll();
     }
+
+    public List<User> selectUser(String nickName){
+        return userMapper.selectUser(nickName);
+    }
+
+    public void deleteUser(Integer id){
+        userMapper.deleteByPrimaryKey(id);
+    }
 }
